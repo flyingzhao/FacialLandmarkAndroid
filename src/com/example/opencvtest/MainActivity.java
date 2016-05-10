@@ -3,12 +3,6 @@ package com.example.opencvtest;
 import java.io.File;
 import java.util.List;
 
-import org.opencv.android.OpenCVLoader;
-import org.opencv.android.Utils;
-import org.opencv.core.Mat;
-import org.opencv.core.Size;
-import org.opencv.imgproc.Imgproc;
-
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.PeopleDet;
 import com.tzutalin.dlib.VisionDetRet;
