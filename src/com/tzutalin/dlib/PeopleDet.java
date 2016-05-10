@@ -17,6 +17,7 @@
 package com.tzutalin.dlib;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import java.io.File;
@@ -44,7 +45,14 @@ public class PeopleDet {
     protected Context mContext;
 
 
-    public List<VisionDetRet> detBitmapFace(int[] img,int w,int h) {
+    public List<VisionDetRet> detBitmapFace(Bitmap mBitmap) {
+    	
+    	int w = mBitmap.getWidth();
+    	int h = mBitmap.getHeight();
+		int[] pix = new int[w * h];
+		mBitmap.getPixels(pix, 0, w, 0, 0, w, h);
+    	
+    	
         List<VisionDetRet> ret = new ArrayList<VisionDetRet>();
         String landmarkPath = "";
         // If landmark exits , then use it
@@ -52,7 +60,7 @@ public class PeopleDet {
             landmarkPath = Constants.getFaceShapeModelPath();
         }
        Log.d("main", "landmark file "+landmarkPath);
-        int size = jniBitmapFaceDect(img, w,h,landmarkPath);
+        int size = jniBitmapFaceDect(pix, w,h,landmarkPath);
         Log.d("main", "face size"+size);
         for (int i = 0; i != size; i++) {
            VisionDetRet det = new VisionDetRet();
@@ -71,11 +79,9 @@ public class PeopleDet {
 
     private native static void jniNativeClassInit();
 
-
-
     private native int jniGetDLibHOGFaceRet(VisionDetRet det, int index);
     
-    //传入Bitmap
+    //Bitmap
     private native int jniBitmapFaceDect(int[] image,int w,int h,String landmarkModelPath);
 
 }
