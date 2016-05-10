@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
         // Create canvas to draw
         Canvas canvas = new Canvas(srcBitmap);
         Paint paint = new Paint();
-        paint.setColor(Color.RED);
+        paint.setColor(Color.GREEN);
         paint.setStrokeWidth(2);
         paint.setStyle(Paint.Style.STROKE);
         // Loop result list
