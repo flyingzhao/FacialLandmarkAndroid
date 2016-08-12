@@ -100,20 +100,10 @@ class DLibHOGFaceDetector : public DLibHOGDetector {
 
 	    LOG(INFO) << "com_tzutalin_dlib_PeopleDet go to det(mat)";
 	     dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
-	    // LOG(INFO) << "com_tzutalin_dlib_PeopleDet get front face detector";
-   int w= image.cols;
-   int h=image.rows;
-   LOG(INFO) <<w;
-   LOG(INFO)<<image.dims;
-   LOG(INFO)<<image.depth();
-   LOG(INFO)<<image.channels();
-	   LOG(INFO) << "com_tzutalin_dlib_PeopleDet get front face detector";
-	   cv::cvtColor(image,image,CV_RGBA2RGB);
 
+	     cv::cvtColor(image,image,CV_RGBA2RGB);
 	     dlib::cv_image<dlib::bgr_pixel> img(image);
-	     LOG(INFO) << "com_tzutalin_dlib_PeopleDet start detector";
 	     mRets = detector(img);
-	     LOG(INFO) << "com_tzutalin_dlib_PeopleDet finish detector";
 	     LOG(INFO) << "Dlib HOG face det size : " << mRets.size();
 		 	mFaceShapeMap.clear();
 
@@ -243,7 +233,7 @@ JNIEXPORT jint JNICALL DLIB_JNI_METHOD(jniBitmapFaceDect)
 	  LOG(INFO) << "com_tzutalin_dlib_PeopleDet start det face";
 	  jint size=gDLibHOGFaceDetector->det(imgData);
 	  LOG(INFO) << "com_tzutalin_dlib_PeopleDet start det face"+size;
-	//env->ReleaseIntArrayElements(img,cbuf,0);
+	  env->ReleaseIntArrayElements(img,cbuf,0);
 	  env->ReleaseStringUTFChars(landmarkPath, landmarkmodel_path);
 	  return size;
 }

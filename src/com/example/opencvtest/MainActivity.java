@@ -42,7 +42,6 @@ public class MainActivity extends Activity {
 		Matrix matrix = new Matrix();
 		// RESIZE THE BIT MAP
 		matrix.postScale(scaleWidth, scaleHeight);
-
 		// "RECREATE" THE NEW BITMAP
 		Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
 		bm.recycle();
@@ -55,9 +54,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		img = (ImageView) findViewById(R.id.imageView);
 		btn = (Button) findViewById(R.id.btn);
-		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.lena);
+		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.l);
 
-		srcBitmap = getResizedBitmap(bitmap, 1000, 1000);
+		srcBitmap = bitmap;
 
 		img.setImageBitmap(srcBitmap);
 
@@ -172,22 +171,5 @@ public class MainActivity extends Activity {
     }
 	
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }

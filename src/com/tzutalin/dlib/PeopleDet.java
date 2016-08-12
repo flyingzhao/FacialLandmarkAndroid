@@ -67,7 +67,7 @@ public class PeopleDet {
             int success = jniGetDLibHOGFaceRet(det, i);
             if (success >= 0) {
                 ret.add(det);
-                Log.d("main", det.getLabel());
+       
             }
         }
         return ret;
