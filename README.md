@@ -1,7 +1,7 @@
-#Facial landmark detection on android
+# Facial landmark detection on android
 在安卓平台上实现人脸特征点检测</br>
 It is an android application based on DLib.</br>
-###Demo
+### Demo
 * APK
 You can download apk[here](https://github.com/flyingzhao/FacialLandmarkAndroid/blob/master/demo/OpenCVTest.apk)<br>
 * Origin
@@ -9,9 +9,9 @@ You can download apk[here](https://github.com/flyingzhao/FacialLandmarkAndroid/b
 * landmark
 ![image](https://github.com/flyingzhao/FacialLandmarkAndroid/blob/master/demo/landmark.png)<br>
 
-###Tools
+### Tools
 Eclipse <br>
 NDK r10e<br>
 
-###Reference
+### Reference
 I refer to [tzutalin](https://github.com/tzutalin/dlib-android). Meanwhile I made some improvements.I have contributed my codes to tzutalin.
